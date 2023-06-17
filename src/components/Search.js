@@ -33,7 +33,7 @@ const Search = () => {
           <TextField
             type="text"
             onChange={(e) => {
-              setName(e.target.value);
+              setName(e.target.value.toLowerCase());
               setShow(true);
             }}
             InputProps={{

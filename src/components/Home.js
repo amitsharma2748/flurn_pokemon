@@ -34,7 +34,7 @@ const Home = (props) => {
             size="large"
             onClick={() => navigate("/bookmark")}
           >
-            Bookmarks
+            Favourite
           </Button>
         </div>
       </div>

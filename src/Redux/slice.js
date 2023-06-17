@@ -4,7 +4,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 // Define the initial state using that type
 const initialState = {
-  tasks: JSON.parse(sessionStorage.getItem("fav")),
+  tasks: JSON.parse(sessionStorage.getItem("fav"))
+    ? JSON.parse(sessionStorage.getItem("fav"))
+    : [],
 };
 
 export const taskSlice = createSlice({
@@ -13,8 +15,9 @@ export const taskSlice = createSlice({
   initialState,
   reducers: {
     addContact: (state, action) => {
-      state.tasks.push({ ...action.payload, completed: 1 });
-      sessionStorage.setItem("fav", JSON.stringify(state.tasks));
+      console.log(action.payload);
+      state.tasks?.push({ ...action?.payload });
+      sessionStorage.setItem("fav", JSON.stringify(state?.tasks));
     },
     deleteContact: (state, action) => {
       console.log(action.payload);
