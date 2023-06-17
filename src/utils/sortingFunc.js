@@ -89,6 +89,6 @@ export const filterPokemonByNames = async (pokemonNames) => {
   const filteredData = datas?.filter((pokemon) => {
     return pokemonNames?.includes(pokemon.location_area_encounters);
   });
-  console.log(datasPromise);
+
   return filteredData;
 };

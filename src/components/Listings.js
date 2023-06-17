@@ -4,14 +4,11 @@ import Loader from "../loader/Loader";
 
 import CardTemp from "./CardTemp";
 import { Link } from "react-router-dom";
-import { Box, Button, InputLabel, MenuItem, Select } from "@mui/material";
+import { Box, MenuItem, Select } from "@mui/material";
 import {
-  removeDuplicatesFromArray,
   filterPokemonByAbility,
   filterPokemonByGroup,
   filterPokemonBySpecies,
-  filterPokemonByLocation,
-  filterPokemonByNames,
 } from "../utils/sortingFunc";
 
 const Listings = () => {
@@ -87,7 +84,7 @@ const Listings = () => {
   const fetchCharacteristics = () => {
     const char = data
       ?.map((item) => item.types)
-      ?.map((item) => item?.map((item) => item.type.name));
+      ?.map((item) => item?.map((item) => item?.type.name));
 
     for (let i = 0; i < char.length; i++) {
       if (!completeCharacterstic.includes(...char[i]))
@@ -98,7 +95,7 @@ const Listings = () => {
 
   let uniqueSpecies = [];
   const fetchSpecies = () => {
-    const species = data.map((item) => item.species.name);
+    const species = data?.map((item) => item?.species.name);
     for (let i = 0; i < species.length; i++) {
       if (!uniqueSpecies.includes(species[i])) uniqueSpecies.push(species[i]);
     }
@@ -143,7 +140,7 @@ const Listings = () => {
             <MenuItem value="All" disabled>
               --Please Select a Ability --
             </MenuItem>
-            {abilities.map((item) => (
+            {abilities?.map((item) => (
               <MenuItem key={item} value={item}>
                 {item}
               </MenuItem>
@@ -159,7 +156,7 @@ const Listings = () => {
             <MenuItem value="All" disabled>
               --Please Select a type --
             </MenuItem>
-            {characteristic.map((item) => (
+            {characteristic?.map((item) => (
               <MenuItem key={item} value={item}>
                 {item}
               </MenuItem>
@@ -175,7 +172,7 @@ const Listings = () => {
             <MenuItem value="All" disabled>
               --Please Select a Species --
             </MenuItem>
-            {species.map((item) => (
+            {species?.map((item) => (
               <MenuItem key={item} value={item}>
                 {item}
               </MenuItem>
@@ -190,42 +187,33 @@ const Listings = () => {
           data?.map((item, index) => {
             if (data.length === index + 1) {
               return (
-                <Link key={item?.name} to={`/detail/:${item?.name}`}>
-                  {" "}
-                  <div
-                    ref={lastPokemonElementRef}
-                    className="text-center mt-4 w-fit m-10"
-                    key={item?.index}
-                  >
-                    <CardTemp
-                      attack={item?.stats[1]?.base_stat}
-                      defence={item?.stats[0]?.base_stat}
-                      name={item?.name}
-                      url={
-                        item?.sprites.other["official-artwork"].front_default
-                      }
-                    />
-                  </div>
-                </Link>
+                <div
+                  ref={lastPokemonElementRef}
+                  className="text-center mt-4 w-fit m-10"
+                  key={index}
+                >
+                  <CardTemp
+                    attack={item?.stats[1]?.base_stat}
+                    defence={item?.stats[0]?.base_stat}
+                    name={item?.name}
+                    url={item?.sprites.other["official-artwork"].front_default}
+                  />
+                </div>
               );
             } else {
               return (
-                <Link key={item?.name} to={`/detail/:${item?.name}`}>
-                  <div
-                    ref={lastPokemonElementRef}
-                    className="text-center mt-4 w-fit m-10"
-                    key={item?.name}
-                  >
-                    <CardTemp
-                      attack={item?.stats[1]?.base_stat}
-                      defence={item?.stats[0]?.base_stat}
-                      name={item?.name}
-                      url={
-                        item?.sprites.other["official-artwork"].front_default
-                      }
-                    />
-                  </div>
-                </Link>
+                <div
+                  ref={lastPokemonElementRef}
+                  className="text-center mt-4 w-fit m-10"
+                  key={index}
+                >
+                  <CardTemp
+                    attack={item?.stats[1]?.base_stat}
+                    defence={item?.stats[0]?.base_stat}
+                    name={item?.name}
+                    url={item?.sprites.other["official-artwork"].front_default}
+                  />
+                </div>
               );
             }
           })

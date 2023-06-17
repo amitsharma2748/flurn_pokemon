@@ -15,22 +15,16 @@ export const taskSlice = createSlice({
   initialState,
   reducers: {
     addContact: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.tasks?.push({ ...action?.payload });
       sessionStorage.setItem("fav", JSON.stringify(state?.tasks));
     },
     deleteContact: (state, action) => {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.tasks = state.tasks.filter(
         (item, index) => index !== action.payload
       );
       sessionStorage.setItem("fav", JSON.stringify(state.tasks));
-    },
-    updateContact: (state, action) => {
-      state.tasks[action?.payload?.id] = action?.payload?.data;
-    },
-    deleteAllCompleted: (state) => {
-      state.tasks = state.tasks.filter((item) => item?.completed === 1);
     },
   },
 });

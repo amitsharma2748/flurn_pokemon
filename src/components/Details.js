@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  InputAdornment,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router";
@@ -20,11 +13,11 @@ const Details = () => {
   const name = location.pathname.split(":")[1];
   const details = useSelector((state) => state.tasks.tasks);
   useEffect(() => {
-    console.log("details");
+    // console.log("details");
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${name}`)
       .then((res) => setData(res?.data));
-  }, []);
+  }, [name]);
   const addBookmark = () => {
     dispatch(addContact(data));
   };
@@ -55,7 +48,7 @@ const Details = () => {
               <Box display={"flex"} justifyContent={"center"}>
                 <img
                   src={data?.sprites?.other["official-artwork"].front_default}
-                  alt="image"
+                  alt="pokemon"
                 />
               </Box>
             </Grid>
@@ -74,6 +67,7 @@ const Details = () => {
                 <Grid item xs={7}>
                   {data?.abilities?.map((item) => (
                     <Button
+                      key={item?.ability?.name}
                       variant="contained"
                       color="error"
                       sx={{ margin: "5px" }}
@@ -103,7 +97,7 @@ const Details = () => {
                   </Grid>
                 </Grid>
                 {data?.stats?.map((item) => (
-                  <Grid item xs={6}>
+                  <Grid item xs={6} key={item?.name}>
                     <Grid container display={"flex"} alignItems={"center"}>
                       <Grid item xs={10}>
                         <Typography variant="h6" textTransform={"capitalize"}>

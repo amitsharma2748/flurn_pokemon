@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import CardTemp from "./CardTemp";
-import { Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
 
 const Bookmark = () => {
@@ -11,7 +10,7 @@ const Bookmark = () => {
   useEffect(() => {
     setData(datas);
   }, [datas]);
-  console.log(data);
+  // console.log(data);
   return (
     <div className="flex flex-wrap m-auto justify-center">
       {data.length === 0 ? (
@@ -22,11 +21,7 @@ const Bookmark = () => {
         </>
       ) : (
         data?.map((item, index) => (
-          <Link
-            to={`/detail/:${item?.name}`}
-            className="text-center mt-4 w-fit mx-5 mb-4"
-            key={item?.name}
-          >
+          <div className="text-center mt-4 w-fit mx-5 mb-4" key={item?.name}>
             <CardTemp
               attack={item?.stats[1]?.base_stat}
               defence={item?.stats[0]?.base_stat}
@@ -34,7 +29,7 @@ const Bookmark = () => {
               url={item?.sprites.other["official-artwork"].front_default}
               id={index}
             />
-          </Link>
+          </div>
         ))
       )}
     </div>

@@ -10,6 +10,7 @@ import {
 import { useLocation } from "react-router";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../Redux/slice";
+import { Link } from "react-router-dom";
 const CardTemp = (props) => {
   const { url, name, attack, defence } = props;
   const location = useLocation();
@@ -22,12 +23,14 @@ const CardTemp = (props) => {
   return (
     <Card sx={{ maxWidth: 345, margin: "auto" }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image={url}
-          alt="green iguana"
-        />
+        <Link to={`/detail/:${name}`}>
+          <CardMedia
+            component="img"
+            height="140"
+            image={url}
+            alt="green iguana"
+          />
+        </Link>
         <CardContent>
           <Typography
             sx={{ textTransform: "capitalize" }}
@@ -82,7 +85,7 @@ const CardTemp = (props) => {
           {" "}
           {currentLocation === "/bookmark" ? (
             <Button variant="contained" color="error" onClick={deletehandler}>
-              Remove from Bookmark
+              Remove from Favourite
             </Button>
           ) : null}
         </CardContent>
