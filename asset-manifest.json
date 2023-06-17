@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/flurn_pokemon/static/css/main.3700f357.css",
+    "main.js": "/flurn_pokemon/static/js/main.106105e7.js",
+    "index.html": "/flurn_pokemon/index.html",
+    "main.3700f357.css.map": "/flurn_pokemon/static/css/main.3700f357.css.map",
+    "main.106105e7.js.map": "/flurn_pokemon/static/js/main.106105e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3700f357.css",
+    "static/js/main.106105e7.js"
+  ]
+}
