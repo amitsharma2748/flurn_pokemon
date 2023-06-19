@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/flurn_pokemon/static/css/main.3700f357.css",
-    "main.js": "/flurn_pokemon/static/js/main.106105e7.js",
+    "main.css": "/flurn_pokemon/static/css/main.b0795e65.css",
+    "main.js": "/flurn_pokemon/static/js/main.20e640b1.js",
     "index.html": "/flurn_pokemon/index.html",
-    "main.3700f357.css.map": "/flurn_pokemon/static/css/main.3700f357.css.map",
-    "main.106105e7.js.map": "/flurn_pokemon/static/js/main.106105e7.js.map"
+    "main.b0795e65.css.map": "/flurn_pokemon/static/css/main.b0795e65.css.map",
+    "main.20e640b1.js.map": "/flurn_pokemon/static/js/main.20e640b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.3700f357.css",
-    "static/js/main.106105e7.js"
+    "static/css/main.b0795e65.css",
+    "static/js/main.20e640b1.js"
   ]
 }
