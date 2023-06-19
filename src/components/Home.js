@@ -6,8 +6,8 @@ const Home = (props) => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="flex w-1/2 m-auto xs:flex-col lg:flex-row  justify-between mt-10 ">
-        <div>
+      <div className="flex w-1/2 m-auto sm:flex-row flex-col  justify-between mt-10 ">
+        <div className="mt-5 flex justify-center">
           <Button
             variant="contained"
             size="large"
@@ -16,7 +16,7 @@ const Home = (props) => {
             Search
           </Button>
         </div>
-        <div>
+        <div className="mt-5 flex justify-center">
           <Button
             variant="contained"
             color="success"
@@ -27,7 +27,7 @@ const Home = (props) => {
           </Button>
         </div>
 
-        <div>
+        <div className="mt-5 flex justify-center">
           <Button
             variant="contained"
             color="secondary"
@@ -39,7 +39,7 @@ const Home = (props) => {
         </div>
       </div>
 
-      <div className="mt-12">{props.children}</div>
+      <div className="sm:mt-2 mt-12 ">{props.children}</div>
     </div>
   );
 };

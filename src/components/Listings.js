@@ -129,13 +129,14 @@ const Listings = () => {
   return (
     <div>
       <Box>
-        <div className="flex justify-around w-1/2 m-auto">
+        <div className="flex justify-around sm:flex-row flex-col  w-1/2 m-auto">
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             label="Abilities"
             onChange={(e) => sortAbilitiesHandler(e)}
             defaultValue={"All"}
+            className="mt-5"
           >
             <MenuItem value="All" disabled>
               --Please Select a Ability --
@@ -152,6 +153,7 @@ const Listings = () => {
             label="Characterstic"
             onChange={(e) => sortCharacteristicsHandler(e)}
             defaultValue={"All"}
+            className="mt-5"
           >
             <MenuItem value="All" disabled>
               --Please Select a type --
@@ -168,6 +170,7 @@ const Listings = () => {
             label="Species"
             onChange={(e) => sortSpeciesHandler(e)}
             defaultValue={"All"}
+            className="mt-5"
           >
             <MenuItem value="All" disabled>
               --Please Select a Species --
